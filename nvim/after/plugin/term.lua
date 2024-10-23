@@ -30,7 +30,7 @@ vim.api.nvim_exec([[
   augroup END
 ]], false)
 
--- Command to get rid of the neovim stauts line
+-- Command to get rid of the neovim status line
 vim.cmd('hi TermStatusLine guibg=#1e1e1e guifg=white ctermbg=0 ctermfg=white')
 
 -- Implements the modified status line
@@ -45,3 +45,19 @@ vim.api.nvim_exec([[
         autocmd TermOpen * lua _G.SetTermStatusLineHighlight()
     augroup END
 ]], false)
+
+-- Skips unnecesary terminal instance closing sequence
+vim.api.nvim_create_autocmd("TermClose", {
+    pattern = "*",
+    callback = function(args)
+        vim.schedule(function()
+            if vim.api.nvim_buf_is_valid(args.buf) then
+                local success, err = pcall(vim.api.nvim_buf_delete, args.buf, { force = true })
+                if not success then
+                    vim.notify("Error deleting buffer: " .. err, vim.log.levels.ERROR)
+                end
+            end
+        end)
+    end,
+})
+
