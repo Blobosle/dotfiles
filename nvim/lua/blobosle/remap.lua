@@ -86,8 +86,14 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Commands for cycling split selection with the new split screen shell instance
-vim.api.nvim_set_keymap('n', '<C-w>', '<C-w>w', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<C-w>', '<C-\\><C-n><C-w>w', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-CR>', '<C-w>w', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<S-CR>', '<C-\\><C-n><C-w>w', { noremap = true, silent = true })
 
 -- Remap for auto suggestions (dropdown autocompletion)
 vim.api.nvim_set_keymap('i', '<C-S>', '<C-n>', { noremap = true, silent = true })
+
+-- Remap for s acting as an entry to insert mode
+vim.api.nvim_set_keymap('n', 's', 'i', { noremap = true })
+
+-- Remap for using option delete for deleting words
+vim.api.nvim_set_keymap('i', '<M-BS>', '<C-W>', { noremap = true, silent = true })

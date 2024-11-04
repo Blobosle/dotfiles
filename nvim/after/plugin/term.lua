@@ -61,3 +61,18 @@ vim.api.nvim_create_autocmd("TermClose", {
     end,
 })
 
+-- Lower timeoutlen when entering terminal mode
+vim.api.nvim_create_autocmd("TermEnter", {
+    pattern = "*",
+    callback = function()
+        vim.opt.timeoutlen = 200
+    end,
+})
+
+-- Restore timeoutlen when leaving terminal mode
+vim.api.nvim_create_autocmd("TermLeave", {
+    pattern = "*",
+    callback = function()
+        vim.opt.timeoutlen = 1000
+    end,
+})

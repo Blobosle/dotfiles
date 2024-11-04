@@ -23,7 +23,10 @@ return require('packer').startup(function(use)
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
+        use {
+            "neovim/nvim-lspconfig",
+            tag = "v0.1.9",
+        }
     }
 
     use 'karb94/neoscroll.nvim'
