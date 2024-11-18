@@ -72,3 +72,17 @@ vim.api.nvim_create_autocmd('FileType', {
   end
 })
 
+-- Function to modify 'w' behavior in normal mode
+function CustomForwardWord()
+    local original_isk = vim.opt.iskeyword:get()
+    vim.opt.iskeyword:remove('_')
+    vim.cmd('normal! w')
+    vim.opt.iskeyword = original_isk
+end
+
+-- Remap 'w' in normal mode
+vim.api.nvim_set_keymap('n', 'w', ':lua CustomForwardWord()<CR>', { noremap = true, silent = true })
+
+-- Opens the memento
+vim.api.nvim_set_keymap('n', '<C-p>', "<cmd>lua require('memento').toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'M', "<cmd>lua require('memento').clear_history()<CR>", { noremap = true, silent = true })
