@@ -2,14 +2,8 @@ local builtin = require('telescope.builtin')
 
 -- Open telescope navigator
 vim.keymap.set('n', '<C-f>', builtin.find_files, {})
---
--- -- Remap <C-g> to the Telescope command with custom layout_config
--- vim.keymap.set('n', '<C-y>', function()
---   require('telescope.builtin').lsp_document_symbols({
---     layout_config = { width = 75, height = 15 }
---   })
--- end, { noremap = true, silent = true })
---
+
+-- Remap to open function and objects table lookup
 vim.keymap.set('n', '<leader><leader>', function()
   require('telescope.builtin').lsp_document_symbols({
     layout_strategy = 'horizontal',
