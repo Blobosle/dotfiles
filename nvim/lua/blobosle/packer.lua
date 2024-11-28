@@ -42,4 +42,6 @@ return require('packer').startup(function(use)
     use 'sainnhe/everforest'
 
     use 'gaborvecsei/memento.nvim'
+
+    use 'p00f/godbolt.nvim'
 end)
