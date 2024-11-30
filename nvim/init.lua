@@ -33,5 +33,6 @@ vim.opt.guicursor = ""
 vim.opt.swapfile = false
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
+vim.o.timeoutlen = 1000
 
 --vim.cmd("let g:netrw_keepdir=0")
