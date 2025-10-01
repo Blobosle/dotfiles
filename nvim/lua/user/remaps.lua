@@ -63,3 +63,7 @@ vim.api.nvim_create_autocmd("User", {
     end, { desc = "Harpoon: quick menu", noremap = true, silent = true })
   end,
 })
+
+-- Custom escape for nested neovim instanc
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+

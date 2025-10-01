@@ -12,7 +12,7 @@ return {
         },
         opts = {
             automatic_enable = false,
-            ensure_installed = { "clangd", },
+            ensure_installed = { "clangd", "bashls" },
         },
     },
     {
@@ -23,9 +23,7 @@ return {
 
             local lsp = require("lspconfig")
             lsp.clangd.setup({})
-            lsp.ts_ls.setup({})
-            lsp.texlab.setup({})
-            lsp.tailwindcss.setup({})
+            lsp.bashls.setup({})
         end,
     },
 }
