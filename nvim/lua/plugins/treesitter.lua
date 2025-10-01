@@ -1,20 +1,20 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = function()
-      require("nvim-treesitter.install").update({ with_sync = true })()
-    end,
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      highlight = {
-        enable = true,
-        disable = { "c" },
-        additional_vim_regex_highlighting = false,
-      },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = function()
+            require("nvim-treesitter.install").update({ with_sync = true })()
+        end,
+        event = { "BufReadPost", "BufNewFile" },
+        opts = {
+            highlight = {
+                enable = true,
+                disable = { "c" },
+                additional_vim_regex_highlighting = false,
+            },
+        },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+        end,
     },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-  },
 }
 
