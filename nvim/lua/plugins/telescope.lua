@@ -30,22 +30,3 @@ return {
         },
     },
 }
-
-
--- return {
---     'nvim-telescope/telescope.nvim',
---     tag = '0.1.8',
---     dependencies = {
---         'nvim-lua/plenary.nvim',
---         {
---             "nvim-telescope/telescope-live-grep-args.nvim" ,
---             version = "^1.0.0",
---         },
---     },
---
---     keys = {
---         { "<C-f>", function() require('telescope.builtin').find_files() end, desc = "Telescope find files" },
---         { "<leader>g", function() require('telescope').extensions.live_grep_args.live_grep_args() end, desc = "Telescope grep (args) files" },
---     },
---
--- }
