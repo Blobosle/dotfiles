@@ -1,6 +1,11 @@
 -- Remap for not going to the next match from a * search
 vim.keymap.set('n', '*', '*N', { noremap = true, silent = true })
 
+-- Umapped d<space> for avoiding conflicts with grepping tool
+vim.keymap.set('o', '<Space>', function()
+    return (vim.v.operator == 'd') and '<Nop>' or '<Space>'
+end, { expr = true, silent = true })
+
 -- Copy-paste functionality
 vim.keymap.set('n', '<C-c>', '<Plug>OSCYankOperator')
 vim.keymap.set('v', '<C-c>', '<Plug>OSCYankVisual')
