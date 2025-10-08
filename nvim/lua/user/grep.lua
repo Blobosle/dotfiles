@@ -194,17 +194,17 @@ vim.keymap.set("n", "<leader>s", function()
     end
 end, { desc = "Previous grep match" })
 
-
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     callback = function(ev)
         local opts = { buffer = ev.buf, silent = true, noremap = true }
 
+        vim.opt_local.winhighlight = "Search:None,IncSearch:None,CurSearch:None"
+
         local function open_entry_stay()
             local idx = vim.fn.line(".")
             local info = vim.fn.getqflist({ items = 1 })
             local items = info.items or {}
-
             if items[idx] and items[idx].valid == 0 then return end
             vim.cmd(("silent! cc %d"):format(idx))
             vim.cmd("wincmd p")
@@ -215,3 +215,4 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.keymap.set("n", "o",              open_entry_stay, opts)
     end,
 })
+
