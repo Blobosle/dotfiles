@@ -1,3 +1,6 @@
+-- Remap for not going to the next match from a * search
+vim.keymap.set('n', '*', '*N', { noremap = true, silent = true })
+
 -- Copy-paste functionality
 vim.keymap.set('n', '<C-c>', '<Plug>OSCYankOperator')
 vim.keymap.set('v', '<C-c>', '<Plug>OSCYankVisual')
