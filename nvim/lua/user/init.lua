@@ -9,6 +9,9 @@ for _, m in ipairs({
     "cmd",
     "grep",
     "quickfix",
+    "man",
+    "file-switch",
+    "split-max",
 }) do
     require("user." .. m)
 end

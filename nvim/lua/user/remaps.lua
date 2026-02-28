@@ -1,3 +1,9 @@
+-- Remap for split screen
+vim.keymap.set('n', 'S', ':vs<CR>', { noremap = true, silent = true })
+
+-- C style make vim command setup
+vim.opt.makeprg = "gcc % && ./a.out"
+
 -- Remap for not going to the next match from a * search
 vim.keymap.set('n', '*', '*N', { noremap = true, silent = true })
 
@@ -37,7 +43,7 @@ vim.api.nvim_set_keymap('i', '<M-BS>', '<C-w>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('t', '<M-BS>', '<C-w>', { noremap = true, silent = true })
 
 -- Remap for clearing search highlighting
-vim.keymap.set('n', '<leader><space>', ':nohlsearch<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader><space>', ':nohlsearch<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
 
 -- Terminal remappings for facilitated use

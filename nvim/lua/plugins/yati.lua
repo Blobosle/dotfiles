@@ -6,7 +6,7 @@ return {
         event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("nvim-treesitter.configs").setup({
-                yati = { enable = true, default_lazy = true },
+                yati = { enable = true, default_lazy = true, disable = { "c" } },
                 indent = { enable = false },
             })
         end,
