@@ -1,5 +1,37 @@
 -- Remap for split screen
 vim.keymap.set('n', 'S', ':vs<CR>', { noremap = true, silent = true })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function(ev)
+        vim.keymap.set('n', 'S', '<Cmd>vsplit<CR>', {
+            buffer = ev.buf,
+            noremap = true,
+            silent = true,
+        })
+    end,
+})
+
+-- Floating preview for LSP errors
+vim.keymap.set("n", "<leader>r", function()
+  vim.schedule(function()
+    local d = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+    if #d == 0 then
+      print("No diagnostics on this line")
+      return
+    end
+
+    local lines = {}
+    for _, x in ipairs(d) do
+      table.insert(lines, x.message)
+    end
+
+    vim.lsp.util.open_floating_preview(lines, "plaintext", {
+      border = "rounded",
+      focusable = true,
+      close_events = {},
+    })
+  end)
+end, { desc = "Show line diagnostics" })
 
 -- C style make vim command setup
 vim.opt.makeprg = "gcc % && ./a.out"

@@ -16,5 +16,3 @@ vim.keymap.set("n", "M", function()
         vim.cmd("wincmd _")      -- maximize height
     end
 end, { desc = "Toggle maximize split" })
-
-

@@ -18,6 +18,7 @@ return {
         { "<C-f>", function()
                 require('telescope.builtin').find_files({ cwd = buf_dir() })
             end,
+            mode = "n",
             desc = "Telescope find files (here)"
         },
 
