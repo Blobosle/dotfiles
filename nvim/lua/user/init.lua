@@ -12,6 +12,8 @@ for _, m in ipairs({
     "man",
     "file-switch",
     "split-max",
+    "cleanup",
+    "buffer",
 }) do
     require("user." .. m)
 end
